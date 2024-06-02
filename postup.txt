@@ -1,4 +1,8 @@
 
+vytvorit v editoru novy soubor banners_multi.phtml
+
+
+
 {*
  * @copyright  Copyright (c) 2013-2024 EVici webdesign s.r.o.
  * @doc        https://www.upgates.cz/a/dokumentace-latte
