@@ -1,1 +1,45 @@
 
+{*
+ * @copyright  Copyright (c) 2013-2024 EVici webdesign s.r.o.
+ * @doc        https://www.upgates.cz/a/dokumentace-latte
+ * @version    4.2
+*}
+
+
+@{if $widgets['banner']->exists('banner1') && (($templateOptions['col_content'] == 'first' && $homepage && !$templateOptions['page_top_hp']) || ($templateOptions['col_content'] == 'first' && !$homepage && !$templateOptions['page_top'])) || $templateOptions['col_content'] != 'first'}
+
+	<div class="section lrs bic-bnr bg bg-wh bnr-main">
+
+
+
+
+
+
+		
+		<div class="container pl-xxl-5 pr-xxl-5 max-w-xxl">
+            <div class="row">
+                <div class="col-18">
+			{control banner id => 'banner1', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+			{if $widgets['banner']->exists('banner1_xs')}
+				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+			{/if}
+            </div>
+            <div class="col-6 d-flex flex-column">
+                <div class="">
+			{control banner id => 'banner1_2', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+			{if $widgets['banner']->exists('banner1_2_xs')}
+				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+			{/if} 
+                </div>
+                <div class="">
+			{control banner id => 'banner1_3', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+			{if $widgets['banner']->exists('banner1_3_xs')}
+				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+			{/if}
+                </div>
+            </div>
+            </div>
+		</div>
+	</div>
+
+@{/if}
