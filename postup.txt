@@ -1,5 +1,13 @@
 
+1) vytvorit system 3 bannerů na hlavni strance
+
+
+
+
+postup:
+
 vytvorit v editoru novy soubor banners_multi.phtml
+a do neho vlozit tento kod:
 
 
 
@@ -21,14 +29,14 @@ vytvorit v editoru novy soubor banners_multi.phtml
 
 		
 		<div class="container pl-xxl-5 pr-xxl-5 max-w-xxl">
-            <div class="row">
-                <div class="col-18">
+            <div class="banner_multiWrap">
+                <div class="">
 			{control banner id => 'banner1', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{if $widgets['banner']->exists('banner1_xs')}
 				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{/if}
             </div>
-            <div class="col-6 d-flex flex-column">
+            
                 <div class="">
 			{control banner id => 'banner1_2', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{if $widgets['banner']->exists('banner1_2_xs')}
@@ -41,7 +49,7 @@ vytvorit v editoru novy soubor banners_multi.phtml
 				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{/if}
                 </div>
-            </div>
+            
             </div>
 		</div>
 	</div>
