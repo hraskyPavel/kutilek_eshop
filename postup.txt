@@ -55,3 +55,26 @@ a do neho vlozit tento kod:
 	</div>
 
 @{/if}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+v sablone homepage.phtml zmenit odkaz na sablonu na kteorou vola banner1....
+zmenit na:
+
+	.....
+	{include '../components/banners/banners_multi.phtml' id => 'banner1', templateOptions => extend($templateOptions, ['col_content' => 'first'])}
+	.....
+
+
+
