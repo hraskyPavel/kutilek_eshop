@@ -171,7 +171,34 @@ problem: V zakladu umi sablona od Upgates přepínat bannery v přechodě SM. Po
 
 postup:
 
-v sablone 
+v sablone banners[hp].phtml zmenit tuto cast:
+
+.....
+		{if $id == 'banner1_xs'}
+			{var $classCarousel $classCarousel.' bnr-main-xs'}
+		{elseif $templateOptions['content'] == 'main' && $control->exists('banner1_xs')}
+			{var $classCarousel $classCarousel.' bnr-main-sm-up'}
+		{/if}
+......
+
+
+zmenit na:
+
+.....
+		{if $id == 'banner1_xs' || $id == 'banner1_2_xs' || $id == 'banner1_3_xs'}
+			{var $classCarousel $classCarousel.' bnr-main-sm'}
+		{elseif $templateOptions['content'] == 'main' && $control->exists('banner1_xs')}
+			{var $classCarousel $classCarousel.' bnr-main-md-up'}
+		{/if}
+......
+
+to znamena zmenit podminku IF a zmenit bnr-main-xs na bnr-main-sm a bnr-main-sm-up na bnr-main-md-up.
+Tim se vytvori bootstrapí třídy které ale ještě musíme ostylovat.
+
+
+
+
+
 
 
 
