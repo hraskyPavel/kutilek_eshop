@@ -40,13 +40,13 @@ a do neho vlozit tento kod:
                 <div class="">
 			{control banner id => 'banner1_2', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{if $widgets['banner']->exists('banner1_2_xs')}
-				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+				{control banner id => 'banner1_2_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{/if} 
                 </div>
                 <div class="">
 			{control banner id => 'banner1_3', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{if $widgets['banner']->exists('banner1_3_xs')}
-				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
+				{control banner id => 'banner1_3_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{/if}
                 </div>
             
@@ -164,6 +164,14 @@ grid-column-start: 9;
 
 }
 
+
+
+2) nastavit prepinani bannerů pro mobilni verzi a desktovopovou verzi na přechod breaktpointu MD
+problem: V zakladu umi sablona od Upgates přepínat bannery v přechodě SM. Pokud je sirka mensi nez SM, jsou zobrazeny bannery pro mobilni verzi a pokud je sirka vetsi nez SM, tak se zobrazi bannery pro desktop. V zakladu je to ale pouze pro banner1 a banner1_xs
+
+postup:
+
+v sablone 
 
 
 
