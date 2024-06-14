@@ -221,6 +221,23 @@ co _custom.scss pridat nakonec tento kod:
 3) na strance s konfiguraci klimatizace....
 
 
+common.js nahrat pred:
+
+
+
+
+.....
+	};
+
+	// JS loaded
+	$('html').addClass('js-finish');
+}
+
+var upC = new upCommon();
+upC.init();
+......
+
+
 
 		if(up.elExist($("#form3"))){
 			const pocetMistnostiElement = $("#frmdynamicFormForm-form3_item2");
@@ -331,6 +348,47 @@ co _custom.scss pridat nakonec tento kod:
 			var pocetMistnosti = this.configClimaGetNumberOfRooms();
 			this.setInputsByRooms()
 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+					do souboru dynamic-form-configclima.phtml nastavit strong
+
+
+							{if $itemType == 'text'}
+								<p class="text mt-6"><strong>{!$itemValue}</strong></p>
+							{elseif $itemType == 'headline'}
+
+
+
+
 
 
 
