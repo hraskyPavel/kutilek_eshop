@@ -258,12 +258,24 @@ na
 ...
 
 
+e)
+
+vytvorit v templates/components/page/other soubor dynamic-form-configclima.phtml a vlozit do nej obsah z dynamic-form[article].phtml
+
+pak v novem souboru "dynamic-form-configclima.phtml" muzu provadet zmeny, napriklad pridat strong:
+	....
+	{if $itemType == 'text'}
+		<p class="text mt-6"><strong>{!$itemValue}</strong></p>
+	{elseif $itemType == 'headline'}
+	....
 
 
+
+
+
+
+f)
 common.js nahrat pred:
-
-
-
 
 .....
 	};
@@ -279,8 +291,14 @@ upC.init();
 
 
 
+
+
+
 tento kod:
 
+
+
+......
 
 
 		if(up.elExist($("#form3"))){
@@ -395,46 +413,7 @@ tento kod:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-					do souboru dynamic-form-configclima.phtml nastavit strong
-
-
-							{if $itemType == 'text'}
-								<p class="text mt-6"><strong>{!$itemValue}</strong></p>
-							{elseif $itemType == 'headline'}
-
-
-
-
-
-
+.......
 
 
 
