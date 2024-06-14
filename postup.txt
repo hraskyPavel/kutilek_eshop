@@ -239,6 +239,11 @@ upC.init();
 
 
 
+
+tento kod:
+
+
+
 		if(up.elExist($("#form3"))){
 			const pocetMistnostiElement = $("#frmdynamicFormForm-form3_item2");
 
