@@ -219,6 +219,45 @@ co _custom.scss pridat nakonec tento kod:
 
 
 3) na strance s konfiguraci klimatizace....
+postup:
+a) pro kategorie přidat v administraci vlastní předdefinované pole "šablona". nevyplnovat zadnou defaultni hodnotu
+b) pro kategorie kde se ma objevit konfigurator klimatizace nastavit vlastní pole na "custom1"
+
+
+c)
+v editoru kodu templates/category/view.custom1.phtml
+
+
+zmenit radek:
+....
+{include '../components/page/other/dynamic-form-section[other].phtml' module => $category, templateOptions => $templateOptions}
+....
+
+na:
+
+....
+{include '../components/page/other/dynamic-form-section-configclima.phtml' module => $category, templateOptions => $templateOptions}
+....
+
+
+
+d)
+vytvorit v templates/components/page/other  soubor s nazvem "dynamic-form-section-configclima.phtml"
+a vložit do něj obsah ze souboru "dynamic-form-section[other].phtml"
+
+pak v novem souboru "dynamic-form-section-configclima.phtml"
+
+toto:
+....
+{control dynamicForm, templateFile => 'dynamic-form[article].phtml', templateOptions => $templateOptions}
+....
+
+na
+...
+{control dynamicForm, templateFile => 'dynamic-form-configclima.phtml', templateOptions => $templateOptions}
+...
+
+
 
 
 common.js nahrat pred:
