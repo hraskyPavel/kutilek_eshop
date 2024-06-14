@@ -218,6 +218,125 @@ co _custom.scss pridat nakonec tento kod:
 
 
 
+3) na strance s konfiguraci klimatizace....
+
+
+
+		if(up.elExist($("#form3"))){
+			const pocetMistnostiElement = $("#frmdynamicFormForm-form3_item2");
+
+			//nalezt vsechny vstupy od do
+			//const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading").not(".text")
+			const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading")
+			//overit ze modulo 3 je 0. Proste vzdy bude pocet vstupu nasobky 3. napr: 3,6,9,12,15,atd...
+			//console.log(inputsByRooms, "modulo3: ",  inputsByRooms.length % 3)
+			if(inputsByRooms.length % 4 !== 0){
+				//console.log("spatny pocet");
+			}
+			this.configClimaGetNumberOfRooms = function(){
+				//console.log(pocetMistnostiElement.val())
+				let value =  parseInt(pocetMistnostiElement.val());
+				//console.log(value)
+				//console.log(Number.isNaN(value))
+				if(Number.isNaN(value)){
+					//pocet mistnosti
+					value = 0;
+				} else{
+					value++;
+				}
+				return value;
+				
+				
+			}
+			this.setInputsByRooms = function(){
+				console.log(inputsByRooms)
+				if(pocetMistnosti > 0){
+					console.log("vetsi nez 0");
+					for(let i = 0; i < inputsByRooms.length ;i++){
+						if(i < (pocetMistnosti * 4)){
+							inputsByRooms[i].classList.remove("hidden");
+						} else{
+							inputsByRooms[i].classList.add("hidden");
+						}
+						
+					}
+					
+				} else{
+					console.log("0");
+					inputsByRooms.addClass("hidden")
+				}
+				
+			}
+			pocetMistnostiElement.change(function(){
+				pocetMistnosti = upC.configClimaGetNumberOfRooms();
+				upC.setInputsByRooms()
+			})
+
+
+			var pocetMistnosti = this.configClimaGetNumberOfRooms();
+			this.setInputsByRooms()
+
+		}
+		if(up.elExist($("#form4"))){
+			const pocetMistnostiElement = $("#frmdynamicFormForm-form4_item2");
+
+			//nalezt vsechny vstupy od do
+			//const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading").not(".text")
+			const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading")
+			//overit ze modulo 3 je 0. Proste vzdy bude pocet vstupu nasobky 3. napr: 3,6,9,12,15,atd...
+			//console.log(inputsByRooms, "modulo3: ",  inputsByRooms.length % 3)
+			if(inputsByRooms.length % 5 !== 0){
+				//console.log("spatny pocet");
+			}
+			this.configClimaGetNumberOfRooms = function(){
+				//console.log(pocetMistnostiElement.val())
+				let value =  parseInt(pocetMistnostiElement.val());
+				//console.log(value)
+				//console.log(Number.isNaN(value))
+				if(Number.isNaN(value)){
+					//pocet mistnosti
+					value = 0;
+				} else{
+					value++;
+				}
+				return value;
+				
+				
+			}
+			this.setInputsByRooms = function(){
+				console.log(inputsByRooms)
+				if(pocetMistnosti > 0){
+					console.log("vetsi nez 0");
+					for(let i = 0; i < inputsByRooms.length ;i++){
+						if(i < (pocetMistnosti * 5)){
+							inputsByRooms[i].classList.remove("hidden");
+						} else{
+							inputsByRooms[i].classList.add("hidden");
+						}
+						
+					}
+					
+				} else{
+					console.log("0");
+					inputsByRooms.addClass("hidden")
+				}
+				
+			}
+			pocetMistnostiElement.change(function(){
+				pocetMistnosti = upC.configClimaGetNumberOfRooms();
+				upC.setInputsByRooms()
+			})
+
+
+			var pocetMistnosti = this.configClimaGetNumberOfRooms();
+			this.setInputsByRooms()
+		}
+
+
+
+
+
+
 
 
 
