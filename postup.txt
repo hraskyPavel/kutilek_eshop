@@ -272,12 +272,22 @@ pak v novem souboru "dynamic-form-configclima.phtml" muzu provadet zmeny, naprik
 	....
 
 
+Musim pridat bezpodminecne ID 'id="{$item->htmlId}' techto dvou elementu. Odkazuju se pak na ne v javascriptu
+
+.....
+	{if $itemType == 'text'}
+		<p class="text mt-6" id="{$item->htmlId}"><strong>{!$itemValue}</strong></p>
+	{elseif $itemType == 'headline'}
+		<h3 class="form-heading text bo-b-s-d pb-2" id="{$item->htmlId}">{!$itemValue}</h3>
+......
+
+
 
 
 
 
 f)
-common.js nahrat pred:
+v souboru common.js nahrat pred:
 
 .....
 	};
@@ -289,10 +299,6 @@ common.js nahrat pred:
 var upC = new upCommon();
 upC.init();
 ......
-
-
-
-
 
 
 
