@@ -421,6 +421,9 @@ tento kod:
 
 
 
+4) CHYBA pri dektivaci Designera!!!!! zmizi na hlavni strance sekce s kategoriema. Je to tim, ze se vola spatna graficka sablona. Nemam uz moc casu na poradnou analyzu
+
+
 
 
 
