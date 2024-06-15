@@ -306,10 +306,11 @@ tento kod:
 
 		if(up.elExist($("#form4"))){
 			const pocetMistnostiElement = $("#frmdynamicFormForm-form4_item2");
-			const heading = $(".form-heading:contains('Uveďte rozměry místností')");
 
-			const zbytekElementu = $(".form-heading:contains('Kontaktní údaje')").nextUntil(".onDynamicFormForm").addBack().add($("#form4").children().not("script, form"))
+			const heading = $("#frmdynamicFormForm-form4_item3");
+			const zbytekElementu = $("#frmdynamicFormForm-form4_item29").nextUntil(".onDynamicFormForm").addBack().add($("#form4").children().not("script, form"))
 			//console.log(zbytekElementu)
+
 
 			const telefon = $("footer a[href^='tel']").parent().removeClass().addClass("d-block mb-3");
 			const email = $("footer a[href^='mailto']").parent().removeClass().addClass("d-block mb-3 fw-b");
@@ -321,18 +322,17 @@ tento kod:
 
 			
 			//nalezt vsechny vstupy od do
-			//const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading").not(".text")
 			const inputsByRooms = heading.nextUntil(".form-heading");
-			//overit ze modulo 3 je 0. Proste vzdy bude pocet vstupu nasobky 3. napr: 3,6,9,12,15,atd...
-			//console.log(inputsByRooms, "modulo3: ",  inputsByRooms.length % 3)
+
+			// atribut disabled nema u checkboxů vyznam. I tak se tyto posilaji na server. Spravne chovani je, ze se inputy s atributem disabled neposilaji.
+			//const inputsByRoomsCheckboxes = inputsByRooms.find(":checkbox")
+			//console.log(inputsByRoomsCheckboxes)
 			if(inputsByRooms.length % 5 !== 0){
 				//console.log("spatny pocet");
 			}
 			this.configClimaGetNumberOfRooms = function(){
-				//console.log(pocetMistnostiElement.val())
 				let value =  parseInt(pocetMistnostiElement.val());
-				//console.log(value)
-				//console.log(Number.isNaN(value))
+
 				if(Number.isNaN(value)){
 					//pocet mistnosti
 					value = 0;
@@ -342,7 +342,8 @@ tento kod:
 				return value;	
 			}
 			this.setInputsByRooms = function(){
-				//console.log(inputsByRooms, pocetMistnosti)
+				console.log(inputsByRooms, pocetMistnosti)
+				//console.log(inputsByRoomsCheckboxes)
 
 				if(pocetMistnosti > 0 && pocetMistnosti < 6){
 					//console.log("vetsi nez 0 ale mensi nez 6");
@@ -353,8 +354,10 @@ tento kod:
 						if(index < (pocetMistnosti * 5)){
 							$(this).removeClass("hidden");
 							//$(this).slideDown(1000);
+							//$(this).find(":checkbox").prop("disabled", false);
 						} else{
 							$(this).addClass("hidden");
+							//$(this).find(":checkbox").prop("disabled", true);
 							//$(this).slideUp(1000);
 						}
 					})				
@@ -369,6 +372,7 @@ tento kod:
 						zbytekElementu.addClass("hidden");
 					}
 					//inputsByRooms.slideUp(1000)
+					//inputsByRoomsCheckboxes.prop("disabled", true)
 					inputsByRooms.addClass("hidden");
 					heading.addClass("hidden");
 				}
@@ -381,6 +385,8 @@ tento kod:
 			var pocetMistnosti = this.configClimaGetNumberOfRooms();
 			this.setInputsByRooms()
 		}
+
+
 
 
 
