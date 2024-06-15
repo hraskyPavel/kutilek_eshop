@@ -423,6 +423,32 @@ tento kod:
 
 4) CHYBA pri dektivaci Designera!!!!! zmizi na hlavni strance sekce s kategoriema. Je to tim, ze se vola spatna graficka sablona. Nemam uz moc casu na poradnou analyzu
 
+reseni: 
+
+upravit v sablone homepage.phtml
+tento radek:
+
+
+....
+{control hpMenu templateFile => '../components/page/hp/subcategories[hp].phtml', rootCategoriesIds => [1, 2, 3], templateOptions => $templateOptions}
+....
+
+odstranit z arraye 1 a 3. Je to pravdepodobne menu. 1 je horni, 2 je leve, a 3 je spodni. ja chci zobrazit leve menu, ktere je to hlavni{ v administraci je v kategorriich nastaveno, ze leve menu je hlavni a duplikuji se polozky do horniho menu. viz: /setup/global/default/categories/}
+
+
+pak v sablone "../components/page/hp/subcategories[hp].phtml"
+
+tento kod:
+
+......
+{if isset($treeByParentId[2])}
+{include '../other/subcategories[hp_hp_bottom].phtml' subcategories => $treeByParentId[2], hpCategories => true, isFirst => $isFirst, isLast => count($treeByParentId) == 2, templateOptions => extend($templateOptions, ['section' => false])}
+{var $isFirst false}
+{/if}
+....
+
+V nem zmenit sablonu z "../other/subcategories[hp_hp_bottom].phtml" na "../other/subcategories[other].phtml"
+
 
 
 
