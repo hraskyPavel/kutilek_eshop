@@ -218,7 +218,9 @@ co _custom.scss pridat nakonec tento kod:
 
 
 
-3) na strance s konfiguraci klimatizace....
+3) formular konfigurace klimatizace. Musi se v administraci vytvorit formular, musim znat jeho id a je velmi citlivy na poradi polozek.
+
+
 postup:
 a) pro kategorie přidat v administraci vlastní předdefinované pole "šablona". nevyplnovat zadnou defaultni hodnotu
 b) pro kategorie kde se ma objevit konfigurator klimatizace nastavit vlastní pole na "custom1"
@@ -247,7 +249,7 @@ a vložit do něj obsah ze souboru "dynamic-form-section[other].phtml"
 
 pak v novem souboru "dynamic-form-section-configclima.phtml"
 
-toto:
+ zmenit toto:
 ....
 {control dynamicForm, templateFile => 'dynamic-form[article].phtml', templateOptions => $templateOptions}
 ....
