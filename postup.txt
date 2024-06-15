@@ -6,7 +6,7 @@
 
 postup:
 
-vytvorit v editoru novy soubor banners_multi.phtml
+vytvorit v editoru ve slozce components/banners novy soubor banners_multi.phtml
 a do neho vlozit tento kod:
 
 
