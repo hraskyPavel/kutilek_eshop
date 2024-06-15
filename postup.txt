@@ -301,67 +301,26 @@ tento kod:
 ......
 
 
-		if(up.elExist($("#form3"))){
-			const pocetMistnostiElement = $("#frmdynamicFormForm-form3_item2");
 
-			//nalezt vsechny vstupy od do
-			//const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading").not(".text")
-			const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading")
-			//overit ze modulo 3 je 0. Proste vzdy bude pocet vstupu nasobky 3. napr: 3,6,9,12,15,atd...
-			//console.log(inputsByRooms, "modulo3: ",  inputsByRooms.length % 3)
-			if(inputsByRooms.length % 4 !== 0){
-				//console.log("spatny pocet");
-			}
-			this.configClimaGetNumberOfRooms = function(){
-				//console.log(pocetMistnostiElement.val())
-				let value =  parseInt(pocetMistnostiElement.val());
-				//console.log(value)
-				//console.log(Number.isNaN(value))
-				if(Number.isNaN(value)){
-					//pocet mistnosti
-					value = 0;
-				} else{
-					value++;
-				}
-				return value;
-				
-				
-			}
-			this.setInputsByRooms = function(){
-				console.log(inputsByRooms)
-				if(pocetMistnosti > 0){
-					console.log("vetsi nez 0");
-					for(let i = 0; i < inputsByRooms.length ;i++){
-						if(i < (pocetMistnosti * 4)){
-							inputsByRooms[i].classList.remove("hidden");
-						} else{
-							inputsByRooms[i].classList.add("hidden");
-						}
-						
-					}
-					
-				} else{
-					console.log("0");
-					inputsByRooms.addClass("hidden")
-				}
-				
-			}
-			pocetMistnostiElement.change(function(){
-				pocetMistnosti = upC.configClimaGetNumberOfRooms();
-				upC.setInputsByRooms()
-			})
-
-
-			var pocetMistnosti = this.configClimaGetNumberOfRooms();
-			this.setInputsByRooms()
-
-		}
 		if(up.elExist($("#form4"))){
 			const pocetMistnostiElement = $("#frmdynamicFormForm-form4_item2");
+			const heading = $(".form-heading:contains('Uveďte rozměry místností')");
 
+			const zbytekElementu = $(".form-heading:contains('Kontaktní údaje')").nextUntil(".onDynamicFormForm").addBack().add($("#form4").children().not("script, form"))
+			//console.log(zbytekElementu)
+
+			const telefon = $("footer a[href^='tel']").parent().removeClass().addClass("d-block mb-3");
+			const email = $("footer a[href^='mailto']").parent().removeClass().addClass("d-block mb-3 fw-b");
+			heading.before("<div id='form-advice-message' class='my-5'></div>")
+			const adviceMessage = $("#form-advice-message");
+			adviceMessage.append("<h3>Prosim kontaktujte nás telefonicky nebo emailem.</h3>")
+			telefon.clone().appendTo(adviceMessage);
+			email.clone().appendTo(adviceMessage);
+
+			
 			//nalezt vsechny vstupy od do
 			//const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading").not(".text")
-			const inputsByRooms = $(".form-heading:contains('Uveďte rozměry místností')").nextUntil(".form-heading")
+			const inputsByRooms = heading.nextUntil(".form-heading");
 			//overit ze modulo 3 je 0. Proste vzdy bude pocet vstupu nasobky 3. napr: 3,6,9,12,15,atd...
 			//console.log(inputsByRooms, "modulo3: ",  inputsByRooms.length % 3)
 			if(inputsByRooms.length % 5 !== 0){
@@ -378,26 +337,38 @@ tento kod:
 				} else{
 					value++;
 				}
-				return value;
-				
-				
+				return value;	
 			}
 			this.setInputsByRooms = function(){
-				console.log(inputsByRooms)
-				if(pocetMistnosti > 0){
-					console.log("vetsi nez 0");
-					for(let i = 0; i < inputsByRooms.length ;i++){
-						if(i < (pocetMistnosti * 5)){
-							inputsByRooms[i].classList.remove("hidden");
+				//console.log(inputsByRooms, pocetMistnosti)
+
+				if(pocetMistnosti > 0 && pocetMistnosti < 6){
+					//console.log("vetsi nez 0 ale mensi nez 6");
+					heading.removeClass("hidden");
+					adviceMessage.addClass("hidden");
+					zbytekElementu.removeClass("hidden");
+					inputsByRooms.each(function(index){
+						if(index < (pocetMistnosti * 5)){
+							$(this).removeClass("hidden");
+							//$(this).slideDown(1000);
 						} else{
-							inputsByRooms[i].classList.add("hidden");
+							$(this).addClass("hidden");
+							//$(this).slideUp(1000);
 						}
-						
-					}
-					
+					})				
 				} else{
-					console.log("0");
-					inputsByRooms.addClass("hidden")
+					if(pocetMistnosti === 0){
+					//console.log("0");
+						adviceMessage.addClass("hidden")
+						zbytekElementu.removeClass("hidden");
+					} else {
+					//console.log("vice nez 5");
+						adviceMessage.removeClass("hidden");
+						zbytekElementu.addClass("hidden");
+					}
+					//inputsByRooms.slideUp(1000)
+					inputsByRooms.addClass("hidden");
+					heading.addClass("hidden");
 				}
 				
 			}
@@ -405,11 +376,11 @@ tento kod:
 				pocetMistnosti = upC.configClimaGetNumberOfRooms();
 				upC.setInputsByRooms()
 			})
-
-
 			var pocetMistnosti = this.configClimaGetNumberOfRooms();
 			this.setInputsByRooms()
 		}
+
+
 
 
 
