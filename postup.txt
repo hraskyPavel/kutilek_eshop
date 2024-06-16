@@ -310,9 +310,9 @@ tento kod:
 
 
 
+
 		if(up.elExist($("#form4"))){
 			const pocetMistnostiElement = $("#frmdynamicFormForm-form4_item2");
-
 			const heading = $("#frmdynamicFormForm-form4_item3");
 			const zbytekElementu = $("#frmdynamicFormForm-form4_item29").nextUntil(".onDynamicFormForm").addBack().add($("#form4").children().not("script, form"))
 			//console.log(zbytekElementu)
@@ -322,19 +322,32 @@ tento kod:
 			const email = $("footer a[href^='mailto']").parent().removeClass().addClass("d-block mb-3 fw-b");
 			heading.before("<div id='form-advice-message' class='my-5'></div>")
 			const adviceMessage = $("#form-advice-message");
-			adviceMessage.append("<h3>Prosim kontaktujte nás telefonicky nebo emailem.</h3>")
+			adviceMessage.append("<h3>Prosím kontaktujte nás telefonicky nebo emailem.</h3>")
 			telefon.clone().appendTo(adviceMessage);
 			email.clone().appendTo(adviceMessage);
+
+
+
 
 			
 			//nalezt vsechny vstupy od do
 			const inputsByRooms = heading.nextUntil(".form-heading");
+
+
+
 
 			// atribut disabled nema u checkboxů vyznam. I tak se tyto posilaji na server. Spravne chovani je, ze se inputy s atributem disabled neposilaji.
 			//const inputsByRoomsCheckboxes = inputsByRooms.find(":checkbox")
 			//console.log(inputsByRoomsCheckboxes)
 			if(inputsByRooms.length % 5 !== 0){
 				//console.log("spatny pocet");
+			}
+			this.setInputTypeNumber = function(){
+				const textInputs = inputsByRooms.find("input").filter("*[type='text']")
+				textInputs.prop("placeholder","zadejte hodnotu v metrech");
+				// textInputs.prop("type","number")
+				// textInputs.parents(".form-group").addClass(upC.cls.required)
+				return
 			}
 			this.configClimaGetNumberOfRooms = function(){
 				let value =  parseInt(pocetMistnostiElement.val());
@@ -390,6 +403,7 @@ tento kod:
 			})
 			var pocetMistnosti = this.configClimaGetNumberOfRooms();
 			this.setInputsByRooms()
+			this.setInputTypeNumber()
 		}
 
 
