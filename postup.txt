@@ -148,19 +148,6 @@ do souboru _custom.scss vlozit tento kod:
 
 
 
-@layer templates {
-  //prepinani banneru pro desktop a mobil.
-  //modifikace banneru pro rozliseni mensi nez MD. Upgates ma v zakladu pouze SM
-  /* Banner XS view */
-  @media (max-width: 767.98px) {
-    .bnr-main-md-up {
-      display: none; } }
-  @media (min-width: 768px) {
-    .bnr-main-sm {
-      display: none; } }
-}
-
-
 
 
 2) nastavit prepinani bannerů pro mobilni verzi a desktovopovou verzi na přechod breaktpointu MD
