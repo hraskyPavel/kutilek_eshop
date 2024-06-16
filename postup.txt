@@ -30,20 +30,20 @@ a do neho vlozit tento kod:
 		
 		<div class="container pl-xxl-5 pr-xxl-5 max-w-xxl">
             <div class="banner_multiWrap">
-                <div class="">
+                <div>
 			{control banner id => 'banner1', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{if $widgets['banner']->exists('banner1_xs')}
 				{control banner id => 'banner1_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{/if}
             </div>
             
-                <div class="">
+                <div>
 			{control banner id => 'banner1_2', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{if $widgets['banner']->exists('banner1_2_xs')}
 				{control banner id => 'banner1_2_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{/if} 
                 </div>
-                <div class="">
+                <div>
 			{control banner id => 'banner1_3', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
 			{if $widgets['banner']->exists('banner1_3_xs')}
 				{control banner id => 'banner1_3_xs', templateFile => 'banners[hp].phtml', templateOptions => extend($templateOptions, ['content' => 'main'])}
@@ -103,7 +103,7 @@ do souboru _custom.scss vlozit tento kod:
 //nastavit grid
 .banner_multiWrap{
   display: grid;
-  grid-template-columns: calc(66% - 5px) calc(34% - 5px);
+  grid-template-columns: calc(67% - 5px) calc(33% - 5px);
   grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
   grid-gap: 10px;
 }
