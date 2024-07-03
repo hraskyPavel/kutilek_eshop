@@ -302,13 +302,13 @@ tento kod:
 			//console.log(zbytekElementu)
 
 
-			const telefon = $("footer a[href^='tel']").parent().removeClass().addClass("d-block mb-3");
-			const email = $("footer a[href^='mailto']").parent().removeClass().addClass("d-block mb-3 fw-b");
+			const telefon = $("footer a[href^='tel']").parent();
+			const email = $("footer a[href^='mailto']").parent();
 			heading.before("<div id='form-advice-message' class='my-5'></div>")
 			const adviceMessage = $("#form-advice-message");
 			adviceMessage.append("<h3>Prosím kontaktujte nás telefonicky nebo emailem.</h3>")
-			telefon.clone().appendTo(adviceMessage);
-			email.clone().appendTo(adviceMessage);
+			telefon.clone().appendTo(adviceMessage).removeClass().addClass("d-block mb-3");
+			email.clone().appendTo(adviceMessage).removeClass().addClass("d-block mb-3 fw-b");
 
 
 
