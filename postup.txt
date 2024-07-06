@@ -104,7 +104,8 @@ do souboru _custom.scss vlozit tento kod:
 .banner_multiWrap{
   display: grid;
   grid-template-columns: calc(67% - 5px) calc(33% - 5px);
-  grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
+  //grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
+//v chromu dela grid-template-rows neplechu
   grid-gap: 10px;
 }
 
