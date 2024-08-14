@@ -437,3 +437,51 @@ V nem zmenit sablonu z "../other/subcategories[hp_hp_bottom].phtml" na "../other
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+obarvit hlavni menu na oranzovou a pak jeste udelat pruhledne ikonky v headlines a dat do pozadi jejich sedou
+
+
+
+sablona:
+
+components/header.phtml
+
+zmenit element:
+<div class="navbar navbar-md lrs bic-hbot the-h-3 n-o-t-up flex-column b x bg-wh bo-b-s-d jc-e jc-xl-c _hdr_bottom MenuOnTopResetX">
+
+na:
+
+<div class="navbar navbar-md lrs bic-hbot the-h-3 n-o-t-up flex-column b bg-se bo-b-s-d jc-e jc-xl-c _hdr_bottom MenuOnTopResetX">
+
+
+
+
+pak jeste element zmenit:
+
+<nav id="menuCollapse" class="navbar-menu-xl collapse navbar-collapse x-xl bg-wh ca-c-v SidebarIcons SidebarColor" aria-expanded="false">
+
+na:
+
+
+<nav id="menuCollapse" class="navbar-menu-xl collapse navbar-collapse x-xl bg-se ca-c-v SidebarIcons SidebarColor" aria-expanded="false">
+
+
+
+
+
+
+
