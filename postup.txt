@@ -483,5 +483,14 @@ na:
 
 
 
+nakonec pridat do _custom.scss:
+
+.....
+.headlines img{
+  background-color: var(--de);
+}
+.....
+
+
 
 
